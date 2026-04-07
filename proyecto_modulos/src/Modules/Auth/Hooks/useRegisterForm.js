@@ -16,7 +16,6 @@ const useRegisterForm = () => {
  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue)) return 'Email inválido'; 
  const users = JSON.parse(localStorage.getItem('users')) || [];  if (users.some(u => u.email.toLowerCase() === 
 trimmedValue.toLowerCase())) return 'El email ya está registrado';  } 
- if (field === 'password' && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d). {8,}$/.test(trimmedValue)) return 'La clave debe tener 8 caracteres, mayúscula, minúscula y número'; 
  if (field === 'telefono' && !/^\d{7,15}$/.test(trimmedValue)) return 'Teléfono inválido (7-15 dígitos)'; 
  if (field === 'fechaNacimiento') { 
  if (new Date(trimmedValue) > new Date()) return 'Fecha inválida';  } 
